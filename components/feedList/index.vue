@@ -1,15 +1,14 @@
 <template>
-  <div class="news-feed">
-    <div class="section-header">
+  <div class="feed-container">
+    <!-- <div class="section-header">
       <h3><i class="fas fa-fire"></i> 热门公司 · 多源资讯</h3>
       <NuxtLink class="market-date" to="/search">
         <span>更多</span> 
         <i class="fas fa-angle-right"></i>
       </NuxtLink>
-    </div>
+    </div> -->
 
-    <!-- 筛选栏 东方财富 / 同花顺 / 其他 -->
-    <div class="source-filter">
+    <!-- <div class="source-filter">
       <span class="filter-label"><i class="fas fa-rss"></i> 信源筛选</span>
       <div class="filter-options">
         <span class="source-chip active"
@@ -23,7 +22,7 @@
           ><i class="fas fa-newspaper"></i> 其他资讯</span
         >
       </div>
-    </div>
+    </div> -->
 
     <!-- 第一条资讯：双源标记 (同花顺+东方财富) -->
     <div class="news-item" v-for="item in 2" :key="item">
@@ -177,93 +176,93 @@
 
 <style lang="scss" scoped>
 /* 资讯区域 - 保留筛选项+标记 */
-.news-feed {
+.feed-container {
   background: #131c28;
   border-radius: 1.8rem;
   padding: 1.5rem 1.6rem;
   cursor: pointer;
   border: 1px solid #273349;
 }
-.market-date {
-    color: #788fb0;
-    font-size: 0.85rem;
-    background: #1f2b3c;
-    padding: 0.3rem 1rem;
-    border-radius: 30px;
-  }
-.section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.2rem;
-    color: #fff;
-  }
+// .market-date {
+//     color: #788fb0;
+//     font-size: 0.85rem;
+//     background: #1f2b3c;
+//     padding: 0.3rem 1rem;
+//     border-radius: 30px;
+//   }
+// .section-header {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     margin-bottom: 1.2rem;
+//     color: #fff;
+//   }
 
-  .section-header h3 {
-    color: #ddeeff;
-    font-weight: 600;
-    font-size: 1.3rem;
-    letter-spacing: -0.2px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
+//   .section-header h3 {
+//     color: #ddeeff;
+//     font-weight: 600;
+//     font-size: 1.3rem;
+//     letter-spacing: -0.2px;
+//     display: flex;
+//     align-items: center;
+//     gap: 8px;
+//   }
 
-  .section-header h3 i {
-    color: #3e7aff;
-    font-size: 1.2rem;
-  }
+//   .section-header h3 i {
+//     color: #3e7aff;
+//     font-size: 1.2rem;
+//   }
 
 /* 筛选栏 */
-.source-filter {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  margin-bottom: 1.6rem;
-  flex-wrap: wrap;
-}
-.filter-label {
-  color: #9ab3d9;
-  font-size: 0.85rem;
-  font-weight: 500;
-  letter-spacing: 0.3px;
-  background: #1f2c3f;
-  padding: 0.3rem 1rem;
-  border-radius: 30px;
-}
-.filter-options {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-.source-chip {
-  background: #1f2c3f;
-  color: #b5cef0;
-  padding: 0.4rem 1.2rem;
-  border-radius: 40px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  border: 1px solid #334257;
-  cursor: default;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  transition: 0.1s;
-}
-.source-chip i {
-  font-size: 0.8rem;
-  color: #6086c0;
-  margin-right: 0.2rem;
-}
-.source-chip.active {
-  background: #2f4567;
-  color: white;
-  border-color: #5f8ad4;
-  box-shadow: 0 2px 8px #1e3a62;
-}
-.source-chip.active i {
-  color: #ffdb9d;
-}
+// .source-filter {
+//   display: flex;
+//   align-items: center;
+//   gap: 0.8rem;
+//   margin-bottom: 1.6rem;
+//   flex-wrap: wrap;
+// }
+// .filter-label {
+//   color: #9ab3d9;
+//   font-size: 0.85rem;
+//   font-weight: 500;
+//   letter-spacing: 0.3px;
+//   background: #1f2c3f;
+//   padding: 0.3rem 1rem;
+//   border-radius: 30px;
+// }
+// .filter-options {
+//   display: flex;
+//   gap: 0.5rem;
+//   flex-wrap: wrap;
+// }
+// .source-chip {
+//   background: #1f2c3f;
+//   color: #b5cef0;
+//   padding: 0.4rem 1.2rem;
+//   border-radius: 40px;
+//   font-size: 0.85rem;
+//   font-weight: 500;
+//   border: 1px solid #334257;
+//   cursor: default;
+//   align-items: center;
+//   gap: 6px;
+//   cursor: pointer;
+//   transition: 0.1s;
+// }
+// .source-chip i {
+//   font-size: 0.8rem;
+//   color: #6086c0;
+//   margin-right: 0.2rem;
+// }
+// .source-chip.active {
+//   background: #2f4567;
+//   color: white;
+//   border-color: #5f8ad4;
+//   box-shadow: 0 2px 8px #1e3a62;
+// }
+// .source-chip.active i {
+//   color: #ffdb9d;
+// }
 
 .news-item {
   display: flex;

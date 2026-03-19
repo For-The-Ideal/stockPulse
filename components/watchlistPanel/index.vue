@@ -3,7 +3,7 @@
     <div id="loginPlaceholder" class="login-placeholder" v-if="!isLogin">
       <i class="fas fa-lock"></i>
       <p>登录后查看您的自选股</p>
-      <button class="login-btn" @click="isLogin = true">立即登录</button>
+      <button class="login-btn" @click="handleLoginClick">立即登录</button>
     </div>
 
     <template v-else>
@@ -63,11 +63,30 @@
         </div>
       </div>
     </template>
+
+    <LoginModal :modelValue="isShowLoginModal" @update-modelValue="handleUpdateModelValue" @login-success="handleLoginSuccess" />
   </div>
 </template>
 
 <script setup>
-const isLogin = ref(false);
+import { useLoginStore } from '~/stores/login.js'
+import LoginModal from '~/components/loginModal/index.vue'
+
+const loginStore = useLoginStore()
+const { isLogin } = storeToRefs(loginStore)
+const isShowLoginModal = ref(false)
+
+const handleLoginClick = () => {
+ isShowLoginModal.value = true
+}
+
+const handleUpdateModelValue = (value) => {
+  isShowLoginModal.value = value
+}
+
+const handleLoginSuccess = () => {
+  isShowLoginModal.value = false
+}
 </script>
 
 <style lang="scss" scoped>
