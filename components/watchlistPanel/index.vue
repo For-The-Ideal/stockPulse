@@ -12,7 +12,7 @@
           <h4><i class="fas fa-star" style="color: #ffb347"></i> 自选股 (6)</h4>
         </div>
       </div>
-      <div class="stock-row">
+      <div class="stock-row" @click="goToStock">
         <div class="stock-info">
           <span class="stock-symbol">腾讯控股</span
           ><span class="stock-name">00700 · 港股</span>
@@ -22,7 +22,7 @@
           <div class="stock-change-red positive">+2.35%</div>
         </div>
       </div>
-      <div class="stock-row">
+      <div class="stock-row" @click="goToStock">
         <div class="stock-info">
           <span class="stock-symbol">贵州茅台</span
           ><span class="stock-name">600519 · 白酒</span>
@@ -32,7 +32,7 @@
           <div class="stock-change-red positive">+1.12%</div>
         </div>
       </div>
-      <div class="stock-row">
+      <div class="stock-row" @click="goToStock">
         <div class="stock-info">
           <span class="stock-symbol">特斯拉</span
           ><span class="stock-name">TSLA · 美股</span>
@@ -42,7 +42,7 @@
           <div class="stock-change-green negative">-0.78%</div>
         </div>
       </div>
-      <div class="stock-row">
+      <div class="stock-row" @click="goToStock">
         <div class="stock-info">
           <span class="stock-symbol">宁德时代</span
           ><span class="stock-name">300750 · 电池</span>
@@ -52,7 +52,7 @@
           <div class="stock-change-red positive">+3.67%</div>
         </div>
       </div>
-      <div class="stock-row">
+      <div class="stock-row" @click="goToStock">
         <div class="stock-info">
           <span class="stock-symbol">英伟达</span
           ><span class="stock-name">NVDA · 美股</span>
@@ -71,6 +71,9 @@
 <script setup>
 import { useLoginStore } from '~/stores/login.js'
 import LoginModal from '~/components/loginModal/index.vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const loginStore = useLoginStore()
 const { isLogin } = storeToRefs(loginStore)
@@ -86,6 +89,11 @@ const handleUpdateModelValue = (value) => {
 
 const handleLoginSuccess = () => {
   isShowLoginModal.value = false
+}
+
+// 跳转到个股
+const goToStock = () => {
+  router.push(`/stock?code=9527`);
 }
 </script>
 
@@ -152,6 +160,7 @@ const handleLoginSuccess = () => {
   justify-content: space-between;
   align-items: center;
   padding: 0.9rem 0;
+  cursor: pointer;
   border-bottom: 1px solid #1f2d3e;
 }
 .stock-row:last-child {

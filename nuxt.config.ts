@@ -4,6 +4,17 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   // 开启ssr
   ssr: true,
+
+  // Vite 配置
+  vite: {
+    optimizeDeps: {
+      include: [
+        '@vue/devtools-core',
+        '@vue/devtools-kit',
+      ]
+    }
+  },
+  
   app: {
     head: {
       title: '股票脉冲',

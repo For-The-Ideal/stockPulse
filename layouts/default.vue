@@ -51,6 +51,7 @@ body {
 .default-layout {
   width: 90vw;
   background: #11161f;
+  cursor: pointer;
   border-radius: 0 0 2rem 2rem; /* 只保留底部圆角，头部吸顶后无顶部圆角更合理 */
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8),
     0 0 0 1px rgba(75, 130, 200, 0.15) inset;

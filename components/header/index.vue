@@ -9,7 +9,7 @@
       </a>
       <div class="nav-links">
         <NuxtLink
-          v-for="item in tabList"
+          v-for="item in getTabList"
           :key="item.type"
           to="#"
           @click="handleNavigationBar(item)"
@@ -128,6 +128,12 @@ const tabList = ref([
   },
 ]);
 
+const getTabList = computed(()=>{
+  return tabList.value.filter(item=>{
+    return isLogin.value ? item : item.type !== 'star'
+  })
+})
+
 const handleDropdownClick = (e) => {
   e.stopPropagation();
   isShowDropdown.value = !isShowDropdown.value;
@@ -152,6 +158,10 @@ const handleLogout = async () => {
   closeDropdown();
   // router.push('/');
 };
+
+const handleLoginSuccess = async () => {
+  isShowLoginModal.value = false
+}
 
 const handleNavigationBar = async(item)=>{
   await navigationBarStore.setNavigationBarActive(item.link)

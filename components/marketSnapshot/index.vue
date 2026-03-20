@@ -102,7 +102,7 @@
     font-weight: 700;
     font-size: 1.5rem;
     color: #f0f6ff;
-    margin: 0.3rem 0 0.1rem;
+    margin: 0.4rem 0rem;
   }
 
   .index-change {

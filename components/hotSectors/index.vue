@@ -4,7 +4,7 @@
       <h4><i class="fas fa-chart-pie"></i> 板块热点</h4>
       <span class="market-date">今日资金</span>
     </div>
-    <div class="sector-item">
+    <div class="sector-item" @click="goToSector">
       <span class="sector-name"><i class="fas fa-bolt"></i> 半导体</span>
       <div class="sector-progress">
         <div class="progress-bar-bg">
@@ -13,7 +13,7 @@
         <span class="sector-perc positive">+4.2%</span>
       </div>
     </div>
-    <div class="sector-item">
+    <div class="sector-item" @click="goToSector">
       <span class="sector-name"><i class="fas fa-car"></i> 汽车整车</span>
       <div class="sector-progress">
         <div class="progress-bar-bg">
@@ -22,7 +22,7 @@
         <span class="sector-perc positive">+2.7%</span>
       </div>
     </div>
-    <div class="sector-item">
+    <div class="sector-item" @click="goToSector">
       <span class="sector-name"><i class="fas fa-flask"></i> 创新药</span>
       <div class="sector-progress">
         <div class="progress-bar-bg">
@@ -31,7 +31,7 @@
         <span class="sector-perc positive">+1.5%</span>
       </div>
     </div>
-    <div class="sector-item">
+    <div class="sector-item" @click="goToSector">
       <span class="sector-name"
         ><i class="fas fa-hand-holding-usd"></i> 银行</span
       >
@@ -45,7 +45,7 @@
         <span class="sector-perc negative">-0.8%</span>
       </div>
     </div>
-    <div class="sector-item">
+    <div class="sector-item" @click="goToSector">
       <span class="sector-name"
         ><i class="fas fa-charging-station"></i> 光伏</span
       >
@@ -59,7 +59,16 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const goToSector = (sector) => {
+  router.push(`/sections?name=${sector}`);
+}
+
+</script>
 
 <style lang="scss" scoped>
 .hot-sectors {
